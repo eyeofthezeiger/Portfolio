@@ -61,9 +61,7 @@ const App = () => {
 
   // Function to start a new game
   function play() {
-    if (gameOver == true) {
-      setIsPaused(false);
-    }
+    setIsPaused(false);
     setIsPlaying(true);
     setSnake(initialSnake);
     setApple(initialApple);
@@ -191,28 +189,6 @@ const App = () => {
         width={`${canvasX}px`}
         height={`${canvasY}px`}
       />
-
-
-      {/* Display message when hitting left wall */}
-      {(checkCollision([snake[0][0] - 1, snake[0][1]]) && direction[0] === -1) && (
-        <div className="gameOver" style={{ color: 'blue' }}>
-          Hit the left wall! Go to the home page.
-        </div>
-      )}
-
-      {/* Display message when hitting bottom wall */}
-      {(checkCollision([snake[0][0], snake[0][1] + 1]) && direction[1] === 1) && (
-        <div className="gameOver" style={{ color: 'blue', position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-          Hit the bottom wall! Go to the portfolio.
-        </div>
-      )}
-
-      {/* Display message when hitting right wall */}
-      {(checkCollision([snake[0][0] + 1, snake[0][1]]) && direction[0] === 1) && (
-        <div className="gameOver" style={{ color: 'blue', position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', textAlign: 'center' }}>
-          Hit the right wall! Go to the experience section.
-        </div>
-      )}
 
       {/* {gameOver && <div className="gameOver" style={{color: 'blue'}}>Game Over</div>} */}
       <button onClick={play} className="playButton" style={{ position: 'absolute', top: '58%', left: '85%' }}>
